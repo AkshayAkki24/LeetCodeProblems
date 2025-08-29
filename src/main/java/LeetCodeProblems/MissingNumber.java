@@ -1,4 +1,4 @@
-package practice.LeetCodeProblems;
+package LeetCodeProblems;
 
 public class MissingNumber {
 

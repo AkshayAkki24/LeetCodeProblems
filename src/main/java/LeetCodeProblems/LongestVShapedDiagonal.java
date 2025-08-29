@@ -1,4 +1,4 @@
-package practice.LeetCodeProblems;
+package LeetCodeProblems;
 
 public class LongestVShapedDiagonal {
 
@@ -91,7 +91,11 @@ public class LongestVShapedDiagonal {
         LongestVShapedDiagonal sol = new LongestVShapedDiagonal();
 
         int[][] grid1 = {
-            {2,2,1,2,2},{2,0,2,2,0},{2,0,1,1,0},{1,0,2,2,2},{2,0,0,2,2}
+            {2,2,1,2,2},
+            {2,0,2,2,0},
+            {2,0,1,1,0},
+            {1,0,2,2,2},
+            {2,0,0,2,2}
         };
 
         System.out.println("Longest V-shaped diagonal length: " + sol.longestVDiagonal(grid1));
