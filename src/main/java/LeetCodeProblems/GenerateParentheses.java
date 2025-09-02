@@ -20,12 +20,14 @@ public class GenerateParentheses {
 		
 		if(open < n) {
 			sb.append('(');
+//			System.out.println(sb);
 			brackTrace(ans,sb,open+1,close,n);
 			sb.deleteCharAt(sb.length() - 1);
 		}
 		
 		if(close < open) {
 			sb.append(')');
+//			System.out.println(sb);
 			brackTrace(ans, sb, open, close+1, n);
 			sb.deleteCharAt(sb.length() - 1);
 		}

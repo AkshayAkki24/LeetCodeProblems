@@ -7,7 +7,7 @@ public class StringStreams {
 	
 	private void upperCase(List<String> names) {
 		//uppercase
-		List<String> upperCase = names.stream().map(String::toUpperCase).toList();
+		List<String> upperCase = names.stream().map(String::toUpperCase).collect(Collectors.toList());
 		System.out.println("Uppercase : "+upperCase);
 	}
 
@@ -38,7 +38,7 @@ public class StringStreams {
 
 	private void frequencyOfEachCharacter(List<String> names) {
 		//frequency of string
-		String input = names.get(0);
+		String input = names.get(5);
 		Map<Character,Long> freq = input.chars().mapToObj(c -> (char) c).collect(Collectors.groupingBy(c -> c,Collectors.counting()));
 		System.out.println("Frequency of each character : "+freq);
 		
@@ -46,7 +46,7 @@ public class StringStreams {
 
 	public static void main(String[] args) {
 		
-		List<String> names = List.of("Akshay","Rakesh","Abhishek","Royal Enfield","john");
+		List<String> names = List.of("Akshay","Rakesh","Abhishek","Royal Enfield","john","ahatafaedsba");
 		StringStreams sol = new StringStreams();
 		sol.upperCase(names);
 		sol.startWithA(names);

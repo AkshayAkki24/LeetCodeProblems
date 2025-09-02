@@ -1,16 +1,15 @@
 package Java8Streams;
 
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.Map;
 
 public class StreamNumbers {
-
-	private Object partitionListIntoEven;
 
 	public void maximumNumber(List<Integer> numbers) {
 		// Find the maximum number in the list
@@ -57,33 +56,39 @@ public class StreamNumbers {
 
 	public void sortListDescendingOrder(List<Integer> numbers) {
 		List<Integer> descendingNumbers = numbers.stream().sorted(Comparator.reverseOrder()).toList();
-		System.out.println("Sort list in descending Oreder : "+descendingNumbers);
+		System.out.println("Sort list in descending Oreder : " + descendingNumbers);
 	}
 
 	public void removeDuplicates(List<Integer> numbers) {
 		List<Integer> removeDuplicate = numbers.stream().distinct().toList();
-		System.out.println("Remove Duplicates from the list : "+removeDuplicate);
+		System.out.println("Remove Duplicates from the list : " + removeDuplicate);
 	}
 
 	private void findTheAvarageofList(List<Integer> numbers) {
 		double avarage = numbers.stream().mapToInt(i -> i).average().orElse(0.0);
-		System.out.println("The Avarage of the list : "+avarage);
+		System.out.println("The Avarage of the list : " + avarage);
 
 	}
 
 	private void partitionListIntoEvenOdd(List<Integer> numbers) {
-		Map<Boolean,List<Integer>> partitioned = numbers.stream().collect(Collectors.partitioningBy(n -> n % 2 == 0));
-		System.out.println("The partition list into even and odd : "+partitioned);
+		Map<Boolean, List<Integer>> partitioned = numbers.stream().collect(Collectors.partitioningBy(n -> n % 2 == 0));
+		System.out.println("The partition list into even and odd : " + partitioned);
 	}
 
 	private void findTheSeconfHighestNumber(List<Integer> numbers) {
 		int num = numbers.stream().sorted(Comparator.reverseOrder()).distinct().skip(1).findFirst().orElseThrow();
-		System.out.println("the second highest numbers : "+num);
+		System.out.println("the second highest numbers : " + num);
 	}
 
 	private void getTop3HighestNumbers(List<Integer> numbers) {
 		List<Integer> top3 = numbers.stream().sorted(Comparator.reverseOrder()).limit(3).toList();
-		System.out.println("the top3 highest elements : "+top3);
+		System.out.println("the top3 highest elements : " + top3);
+	}
+	
+	public void reversed() {
+		List<Integer> numbers = Arrays.asList(10,20,30,40,50);
+		List<Integer> reversedIntegers = numbers.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+		System.out.println("Reverse order : "+reversedIntegers);
 	}
 
 	public static void main(String[] args) {
@@ -102,6 +107,7 @@ public class StreamNumbers {
 		sol.partitionListIntoEvenOdd(numbers);
 		sol.findTheSeconfHighestNumber(numbers);
 		sol.getTop3HighestNumbers(numbers);
+		sol.reversed();
 	}
 
 }
